@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<head><title>Dashboard</title></head>
+<body>
+<h2>Welcome to your Dashboard</h2>
+<p>Balance: ${{ balance }}</p>
+<form action="/add_funds" method="post">
+  <input type="number" name="amount" placeholder="Amount to add" required>
+  <button type="submit">Add Funds with Stripe</button>
+</form>
+<form action="/order" method="post">
+  <select name="service_id">{% for s in services %}<option value="{{ s[0] }}">{{ s[1] }}</option>{% endfor %}</select>
+  <input name="link" placeholder="Link" required>
+  <input name="quantity" type="number" placeholder="Quantity" required>
+  <button type="submit">Order</button>
+</form>
+</body>
+</html>
